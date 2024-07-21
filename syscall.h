@@ -25,4 +25,5 @@
 //#define SYS_hello 22
 
 #define SYS_getsiblings  22
+#define SYS_waitpid 23
 

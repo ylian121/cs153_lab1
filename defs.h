@@ -133,6 +133,10 @@ void            userinit(void);
 //changed wait status
 int             wait(int*);
 
+//part 5
+//waitpid
+int             waitpid(int, int*, int);
+
 void            wakeup(void*);
 void            yield(void);
 

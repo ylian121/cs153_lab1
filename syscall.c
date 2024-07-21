@@ -104,7 +104,9 @@ extern int sys_wait(void);
 extern int sys_write(void);
 extern int sys_uptime(void);
 
+//new
 extern int sys_getsiblings(void);
+extern int sys_waitpid(void);
 
 
 //lab 1 slide
@@ -133,7 +135,9 @@ static int (*syscalls[])(void) = {
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
 
+//new
 [SYS_getsiblings] sys_getsiblings,
+[SYS_waitpid] sys_waitpid,
 
 
 //lab 1 slide
