@@ -22,4 +22,7 @@
 #define SYS_close  21
 
 //lab 1 slide
-#define SYS_hello 22
+//#define SYS_hello 22
+
+#define SYS_getsiblings  22
+
