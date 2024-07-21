@@ -1,8 +1,6 @@
 #include "types.h"
 #include "user.h"
 
-#include "types.h"
-#include "user.h"
 
 int main() {
 
@@ -37,11 +35,11 @@ int main() {
 }
 
 
-//lab 1 slide
 /*
+//lab 1 slide
 int main(int argc, char* argv[]){
     //new added system call
-    hello();
-    exit();
+    getsibling();
+    exit(0);
 }
 */

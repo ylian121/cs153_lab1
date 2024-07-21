@@ -541,6 +541,19 @@ procdump(void)
 //fix later
 //take no argument
 //return id of sibling
+//use p table
+int getsiblings(void){
+  struct proc *curproc = myproc();
+  struct proc *p;
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->parent == curproc->parent){
+      return p->pid;
+    }
+  }
+  return -1;
+}
+
+/*
 int getsiblings(void){
   struct proc *curproc = myproc();
 
@@ -557,11 +570,13 @@ int getsiblings(void){
   
       if(p->state == ZOMBIE)
         wakeup1(initproc);
-      */
+      //
     }
   }
   return -1;
 }
+*/
+
 
 
 
