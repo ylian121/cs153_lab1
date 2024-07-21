@@ -90,11 +90,18 @@ sys_uptime(void)
   return xticks;
 }
 
+
+int
+sys_getsiblings(void){
+  return getsiblings();
+}
+
+
 //lab 1 slide
-//
+/*
 int
 sys_hello(void){
   hello();
   return 0;
 }
-//
+*/
