@@ -622,7 +622,7 @@ int getsiblings(void){
       //return p->pid;
     }
   }
-  return -1;
+  return 0;
 }
 
       /*[!] Errors:
