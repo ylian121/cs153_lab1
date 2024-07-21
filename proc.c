@@ -614,7 +614,7 @@ int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-    if(p->parent == curproc->parent){
+    if(p->parent == curproc->parent && p != curproc){
       /*[!] Errors:
 43
     [getsiblings] getsiblings failed on returning two siblings
