@@ -270,6 +270,20 @@ exit(int status)
   panic("zombie exit");
 }
 
+/*
+proc.c:324:1: error: conflicting types for âwaitâ; have âint(int,  int *, int)â
+150
+  324 | wait(int tempid, int *status, int options)
+151
+      | ^~~~
+152
+proc.c:276:1: note: previous definition of âwaitâ with type âint(int *)â
+153
+  276 | wait(int *status)
+154
+      | ^~~~
+*/
+//^^ forgot to change the copied modified wait to waitpid
 // Wait for a child process to exit and return its pid.
 // Return -1 if this process has no children.
 int
@@ -321,7 +335,7 @@ wait(int *status)
 //waitpid
 //int waitpid(int pid, int *status, int options)
 int
-wait(int tempid, int *status, int options)
+waitpid(int tempid, int *status, int options)
 {
   struct proc *p;
   int havekids, pid;
@@ -619,7 +633,7 @@ int getsiblings(void){
     if(p->parent == curproc->parent){
 
       return p->pid;
-      /*
+      //
       p->parent = initproc;
   
       if(p->state == ZOMBIE)
