@@ -135,7 +135,7 @@ int             wait(int*);
 
 //part 5
 //waitpid
-int             waitpid(int, int*, int);
+int             waitpid(int,int*,int);
 
 void            wakeup(void*);
 void            yield(void);
