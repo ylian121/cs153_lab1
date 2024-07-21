@@ -8,8 +8,9 @@ int fork(void);
 int exit(int) __attribute__((noreturn));
 int wait(int*);
 
-
+//new
 int getsiblings(void);
+int waitpid(int, int* ,int);
 
 //lab 1
 //int hello(void);
