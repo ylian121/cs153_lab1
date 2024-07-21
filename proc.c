@@ -532,3 +532,12 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+
+//lab 1 slide
+//
+void
+hello(void){
+  cprintf("Hello");
+}
+//

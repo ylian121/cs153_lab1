@@ -89,3 +89,12 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+//lab 1 slide
+//
+int
+sys_hello(void){
+  hello();
+  return 0;
+}
+//
