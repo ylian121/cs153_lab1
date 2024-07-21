@@ -625,7 +625,7 @@ int getsiblings(void){
       cprintf("Sibling PID: %d\n", p->pid);
     }
   }
-  return 0;;
+  return -1;
 }
 
 /*
