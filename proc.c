@@ -615,7 +615,14 @@ int getsiblings(void){
   struct proc *p;
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
     if(p->parent == curproc->parent){
-      return p->pid;
+      /*[!] Errors:
+43
+    [getsiblings] getsiblings failed on returning two siblings
+44
+    [getsiblings] getsiblings failed on returning one sibling*/
+      //only get one value
+      //return p->pid;
+      cprintf("Sibling PID: %d\n", p->pid);
     }
   }
   return -1;
