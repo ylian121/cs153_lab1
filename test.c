@@ -1,7 +1,6 @@
 #include "types.h"
 #include "user.h"
 
-
 int main() {
 
     int child1_pid = fork();    // Parent process creates the first child process
@@ -33,13 +32,3 @@ int main() {
 
     exit(0);                         // Exit status added (lab1-part3)
 }
-
-
-/*
-//lab 1 slide
-int main(int argc, char* argv[]){
-    //new added system call
-    getsibling();
-    exit(0);
-}
-*/
