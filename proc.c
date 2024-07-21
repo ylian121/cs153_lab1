@@ -616,13 +616,16 @@ procdump(void)
 int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
+  int parent_pid = curproc->parent->pid;
+  acquire(&ptable.lock);
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-    if(p->parent == curproc->parent){
+    if(p->parent && p->parent->pid == parent_pid && p != curproc){
       cprintf("Sibling PID: %d\n", p->pid);
       //return p->pid;
     }
   }
-  return 0;
+  release(&ptable.lock);
+  return -1;
 }
 
       /*[!] Errors:
