@@ -534,10 +534,19 @@ procdump(void)
 }
 
 
+//get sibling defintion
+//fix later
+int getsiblings(void){
+  return 0;
+}
+
+
+
 //lab 1 slide
-//
+/*
 void
 hello(void){
-  cprintf("Hello");
+  cprintf("\n\nHello from your kernel space!\n\n");
 }
-//
+*/
+
