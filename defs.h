@@ -107,8 +107,11 @@ int             cpuid(void);
 void            exit(void);
 int             fork(void);
 
+
+int             getsiblings(void);
+
 //lab 1 slide
-void hello(void);
+//void hello(void);
 
 int             growproc(int);
 int             kill(int);
