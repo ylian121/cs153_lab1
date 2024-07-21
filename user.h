@@ -5,6 +5,12 @@ struct rtcdate;
 int fork(void);
 int exit(void) __attribute__((noreturn));
 int wait(void);
+
+int getsiblings(void);
+
+//lab 1
+//int hello(void);
+
 int pipe(int*);
 int write(int, const void*, int);
 int read(int, void*, int);

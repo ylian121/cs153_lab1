@@ -29,3 +29,7 @@ SYSCALL(getpid)
 SYSCALL(sbrk)
 SYSCALL(sleep)
 SYSCALL(uptime)
+//lab 1 slide
+//SYSCALL(hello)
+
+SYSCALL(getsiblings)
