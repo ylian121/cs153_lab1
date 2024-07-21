@@ -2,12 +2,14 @@
 #include "user.h"
 
 
-void getSibling(void){}
+void getSibling(void){
+    
+}
 
 int main(int argc, char *argv[])
 {
     getSibling();
-    exit();
+    exit(0);
 }
 
 
