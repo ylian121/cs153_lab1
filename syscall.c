@@ -132,6 +132,10 @@ static int (*syscalls[])(void) = {
 [SYS_link]    sys_link,
 [SYS_mkdir]   sys_mkdir,
 [SYS_close]   sys_close,
+
+[SYS_getsiblings] sys_getsiblings,
+
+
 //lab 1 slide
 //[SYS_hello]   sys_hello,
 };
