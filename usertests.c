@@ -173,7 +173,7 @@ writetest(void)
     printf(stdout, "read succeeded ok\n");
   } else {
     printf(stdout, "read failed\n");
-    exit(1)1;
+    exit(1);
   }
   close(fd);
 
@@ -537,7 +537,7 @@ fourfiles(void)
       fd = open(fname, O_CREATE | O_RDWR);
       if(fd < 0){
         printf(1, "create failed\n");
-        exit(1)1;
+        exit(1);
       }
 
       memset(buf, '0'+pi, 512);
