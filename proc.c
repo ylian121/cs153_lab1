@@ -643,7 +643,7 @@ int getsiblings(void){
   acquire(&ptable.lock);
   for(p=ptable.proc;p < &ptable.proc[NPROC]; p++){
     if(p->parent && p->parent->pid == parent_pid && p != curproc){
-      cprintf("Sibling PID: %d\n", p->pid);
+      cprintf(p->pid);
     }
   }
   release(&ptable.lock);
