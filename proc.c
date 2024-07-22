@@ -625,7 +625,7 @@ int getsiblings(void){
     }
   }
   release(&ptable.lock);
-  return -1;
+  return;
 }
 
       /*[!] Errors:
