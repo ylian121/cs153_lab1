@@ -639,12 +639,14 @@ int getsiblings(void){
 int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
+  acquire(&ptable.lock);
   for(p=ptable.proc;p < &ptable.proc[NPROC]; p++){
-    if(p->parent == curproc->parent){
-      return p->pid;
+    if(p->parent == curproc->parent && p != curproc){
+      cprintf("Sibling PID: %d\n", p->pid);
     }
   }
-  return -1;
+  release(&ptable.lock);
+  return 0;
 }
 
 
