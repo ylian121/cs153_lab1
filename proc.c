@@ -618,6 +618,12 @@ int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
   int parent_pid = curproc->parent->pid;
+
+  acquire(&ptable.lock);
+
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->parent && p->parent->pid == parent_pid && p != curproc){
+=======
   acquire(&ptable.lock);
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
     if(p->parent && p->parent->pid == parent_pid && p != curproc){
@@ -641,6 +647,7 @@ int getsiblings(void){
   return 0;
 }
 
+
       /*[!] Errors:
 43
     [getsiblings] getsiblings failed on returning two siblings
@@ -648,8 +655,6 @@ int getsiblings(void){
     [getsiblings] getsiblings failed on returning one sibling*/
       //only get one value
       //return p->pid;
-      //cprintf("Sibling PID: %d\n", p->pid);
-  //return -1;
 
 /*
 int getsiblings(void){
