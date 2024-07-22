@@ -613,8 +613,12 @@ procdump(void)
 int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
+  int parent_pid = curproc->parent->pid;
+
+  acquire(&ptable.lock);
+
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-    if(p->parent == curproc->parent && p != curproc){
+    if(p->parent && p->parent->pid == parent_pid && p != curproc){
       /*[!] Errors:
 43
     [getsiblings] getsiblings failed on returning two siblings
@@ -625,6 +629,7 @@ int getsiblings(void){
       cprintf("Sibling PID: %d\n", p->pid);
     }
   }
+  release(&ptable.lock);
   return -1;
 }
 
