@@ -540,7 +540,6 @@ fourfiles(void)
         exit(1);
       }
 
-
       memset(buf, '0'+pi, 512);
       for(i = 0; i < 12; i++){
         if((n = write(fd, buf, 500)) != 500){

@@ -229,7 +229,7 @@ exit(int status)
 {
   struct proc *curproc = myproc();
 
-  curproc->status = status;
+  curproc -> status = status;
 
   struct proc *p;
   int fd;
@@ -303,6 +303,9 @@ wait(int *status)
       havekids = 1;
       if(p->state == ZOMBIE){
         // Found one.
+        //add status
+        *status = p->status;
+
         pid = p->pid;
         kfree(p->kstack);
         p->kstack = 0;
@@ -610,6 +613,7 @@ procdump(void)
 //take no argument
 //return id of sibling
 //use p table
+/*
 int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
@@ -619,6 +623,31 @@ int getsiblings(void){
 
   for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
     if(p->parent && p->parent->pid == parent_pid && p != curproc){
+=======
+  acquire(&ptable.lock);
+  for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
+    if(p->parent && p->parent->pid == parent_pid && p != curproc){
+      cprintf("Sibling PID: %d\n", p->pid);
+      //return p->pid;
+    }
+  }
+  release(&ptable.lock);
+  return;
+}
+*/
+
+int getsiblings(void){
+  struct proc *curproc = myproc();
+  struct proc *p;
+  for(p=ptable.proc;p < &ptable.proc[NPROC]; p++){
+    if(p->parent == curproc->parent){
+      cprintf("Sibling PID: %d\n", p->pid);
+    }
+  }
+  return 0;
+}
+
+
       /*[!] Errors:
 43
     [getsiblings] getsiblings failed on returning two siblings
@@ -626,12 +655,6 @@ int getsiblings(void){
     [getsiblings] getsiblings failed on returning one sibling*/
       //only get one value
       //return p->pid;
-      cprintf("Sibling PID: %d\n", p->pid);
-    }
-  }
-  release(&ptable.lock);
-  return -1;
-}
 
 /*
 int getsiblings(void){
