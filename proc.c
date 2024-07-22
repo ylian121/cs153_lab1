@@ -641,10 +641,10 @@ int getsiblings(void){
   struct proc *p;
   for(p=ptable.proc;p < &ptable.proc[NPROC]; p++){
     if(p->parent == curproc->parent){
-      cprintf("Sibling PID: %d\n", p->pid);
+      return p->pid;
     }
   }
-  return 0;
+  return -1;
 }
 
 
