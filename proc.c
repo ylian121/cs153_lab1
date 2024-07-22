@@ -613,6 +613,7 @@ procdump(void)
 //take no argument
 //return id of sibling
 //use p table
+/*
 int getsiblings(void){
   struct proc *curproc = myproc();
   struct proc *p;
@@ -626,6 +627,18 @@ int getsiblings(void){
   }
   release(&ptable.lock);
   return;
+}
+*/
+
+int getsiblings(void){
+  struct proc *curproc = myproc();
+  struct proc *p;
+  for(p=ptable.proc;p < &ptable.proc[NPROC]; p++){
+    if(p->parent == curproc->parent){
+      cprintf("Sibling PID: %d\n", p->pid);
+    }
+  }
+  return 0;
 }
 
       /*[!] Errors:
