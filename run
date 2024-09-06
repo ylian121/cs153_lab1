@@ -1,0 +1,13 @@
+cs 153
+run:
+make qemu-nox
+-> goes into xv86
+$
+$ test
+^^ directly type the test file name
+it will run
+to exit qemu: control + A and then X
+*be sure to exit qemu properly, otherwise it will continue running in the background
+
+gdb
+make qemu-nox-gdb
